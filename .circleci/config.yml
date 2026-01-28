@@ -15,9 +15,6 @@ jobs:
           command: |
             docker build -t animal-photos:ci .
 
-  # ---------------------------------
-  # Build + Push (main branch only)
-  # ---------------------------------
   build_and_push:
     docker:
       - image: cimg/base:stable
