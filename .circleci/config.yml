@@ -1,6 +1,9 @@
 version: 2.1
 
 jobs:
+  # -----------------------------
+  # Build ONLY (feature branches)
+  # -----------------------------
   build_only:
     docker:
       - image: cimg/base:stable
@@ -44,11 +47,13 @@ jobs:
 workflows:
   ci:
     jobs:
+      # Run build on feature branches
       - build_only:
           filters:
             branches:
               ignore: main
 
+      # Run build + push ONLY on main
       - build_and_push:
           filters:
             branches:
